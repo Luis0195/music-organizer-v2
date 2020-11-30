@@ -93,4 +93,15 @@ public class MusicOrganizer
             contador += 1;
         }
     }
+    
+    /**
+     * pone una lista que contenga el string introducido en el parametro
+     */
+    public void listMatching(String searchString) {
+        for (String filename : files) {
+            if (filename.contains(searchString)) {
+                System.out.println(filename);
+            }
+        }
+    }
 }
