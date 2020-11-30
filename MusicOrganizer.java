@@ -109,4 +109,15 @@ public class MusicOrganizer
             System.out.println("Error: No hay ningun archivo llamado así");
         }
     }
+    
+    /**
+     * reproduce todas las canciones de un artista en concreto
+     */
+    public void playSamplesArtist(String searchString) {
+        for (String filename : files) {
+            if (filename.contains(searchString)) {
+                player.playSample(filename);
+            }
+        }  
+    }
 }
