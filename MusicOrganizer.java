@@ -98,10 +98,15 @@ public class MusicOrganizer
      * pone una lista que contenga el string introducido en el parametro
      */
     public void listMatching(String searchString) {
+        int filesSearched = 0;
         for (String filename : files) {
             if (filename.contains(searchString)) {
                 System.out.println(filename);
+                filesSearched += 1;
             }
+        }
+        if (filesSearched == 0) {
+            System.out.println("Error: No hay ningun archivo llamado así");
         }
     }
 }
