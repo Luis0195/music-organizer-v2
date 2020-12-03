@@ -87,10 +87,11 @@ public class MusicOrganizer
      * Muestra por pantalla todos los eslementos de la coleccion files
      */
     public void listAllFiles() {
-        int contador = 1;
-        for (String filename : files) {
-            System.out.println(contador + ". " + filename);
-            contador += 1;
+        int index = 0;
+        while(index < files.size()) {
+            String filename = files.get(index);
+            System.out.println(filename);
+            index++;
         }
     }
     
@@ -119,5 +120,18 @@ public class MusicOrganizer
                 player.playSample(filename);
             }
         }  
+    }
+    
+    /**
+     * elimina canciones buscando por texto
+     */
+    public void deleteSongsWithText(String searchString) {
+        int contador = 0;
+        for (String filename : files) {
+            if (filename.contains(searchString)) {
+                files.remove(contador);
+                contador += 1;
+            }
+        }
     }
 }
