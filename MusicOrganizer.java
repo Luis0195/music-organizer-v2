@@ -13,7 +13,7 @@ public class MusicOrganizer
     private ArrayList<String> files;
     // A player for the music files.
     private MusicPlayer player;
-        
+
     /**
      * Create a MusicOrganizer
      */
@@ -22,7 +22,7 @@ public class MusicOrganizer
         files = new ArrayList<String>();
         player = new MusicPlayer();
     }
-    
+
     /**
      * Add a file to the collection.
      * @param filename The file to be added.
@@ -31,7 +31,7 @@ public class MusicOrganizer
     {
         files.add(filename);
     }
-    
+
     /**
      * Return the number of files in the collection.
      * @return The number of files in the collection.
@@ -40,7 +40,7 @@ public class MusicOrganizer
     {
         return files.size();
     }
-    
+
     /**
      * List a file from the collection.
      * @param index The index of the file to be listed.
@@ -52,7 +52,7 @@ public class MusicOrganizer
             System.out.println(filename);
         }
     }
-    
+
     /**
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
@@ -82,7 +82,7 @@ public class MusicOrganizer
     {
         player.stop();
     }
-    
+
     /**
      * Muestra por pantalla todos los eslementos de la coleccion files
      */
@@ -96,7 +96,7 @@ public class MusicOrganizer
             contador++;
         }
     }
-    
+
     /**
      * pone una lista que contenga el string introducido en el parametro
      */
@@ -112,7 +112,7 @@ public class MusicOrganizer
             System.out.println("Error: No hay ningun archivo llamado así");
         }
     }
-    
+
     /**
      * reproduce todas las canciones de un artista en concreto
      */
@@ -123,7 +123,7 @@ public class MusicOrganizer
             }
         }  
     }
-    
+
     /**
      * elimina canciones buscando por texto
      */
@@ -135,5 +135,30 @@ public class MusicOrganizer
                 contador += 1;
             }
         }
+    }
+
+    /**
+     * Localiza el índice del primer archivo que se corresponde con
+     * la cadena de búsqueda indicada .
+     * @param searchString La cadena que hay que buscar.
+     * @return El índice de la primera aparición o -1 si
+     * no se encuentra ninguna correspondencia
+     */
+    public int findFirst(String searchString) {
+        int index = 0;
+        boolean found = false;
+        while (index < files.size() && !found) {
+            String filename = files.get(index);
+            if (filename.contains(searchString)) {
+                found = true;
+            }
+            else {
+                index++;
+            }
+        }
+        if (!found) {
+            index = -1;
+        }
+        return index;
     }
 }
