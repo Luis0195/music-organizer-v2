@@ -145,9 +145,10 @@ public class MusicOrganizer
      * no se encuentra ninguna correspondencia
      */
     public int findFirst(String searchString) {
+        int size = files.size();
         int index = 0;
         boolean searching = true;
-        while (searching && index < files.size()) {
+        while (searching && index < size) {
             String filename = files.get(index);
             if (filename.contains(searchString)) {
                 searching = false;
@@ -157,10 +158,8 @@ public class MusicOrganizer
             }
         }
         if (searching) {
-            return -1;
+            index = -1;
         }
-        else {
-            return index;
-        }
+        return index;
     }
 }
